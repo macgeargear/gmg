@@ -3,7 +3,7 @@ package usecase
 import (
 	"github.com/macgeargear/gmg/models"
 	repo "github.com/macgeargear/gmg/repositories"
-	svc "github.com/macgeargear/gmg/service"
+	svc "github.com/macgeargear/gmg/services"
 )
 
 type userService struct {
@@ -17,26 +17,35 @@ func NewUserService(userRepo repo.UserRepo) svc.UserService {
 }
 
 // Create implements service.UserService.
-func (*userService) Create(data models.User) error {
+func (u *userService) Create(data models.User) error {
 	panic("unimplemented")
 }
 
 // Delete implements service.UserService.
-func (*userService) Delete(id string) error {
+func (u *userService) Delete(id string) error {
 	panic("unimplemented")
 }
 
 // GetAll implements service.UserService.
-func (*userService) GetAll() ([]models.User, error) {
-	panic("unimplemented")
+func (u *userService) GetAll() ([]models.User, error) {
+	res, err := u.userRepo.GetAll()
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
 }
 
 // GetById implements service.UserService.
-func (*userService) GetById(id string) (*models.User, error) {
-	panic("unimplemented")
+func (u *userService) GetById(id string) (*models.User, error) {
+	res, err := u.userRepo.GetBy(map[string]interface{}{"ID": id})
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+
 }
 
 // Update implements service.UserService.
-func (*userService) Update(data map[string]interface{}, id string) (*models.User, error) {
+func (u *userService) Update(data map[string]interface{}, id string) (*models.User, error) {
 	panic("unimplemented")
 }
