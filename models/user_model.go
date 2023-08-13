@@ -25,4 +25,4 @@ func NewUserDefaultData() *User {
 	return user
 }
 
-func (user *User) GetMapFormat() map[string]interface{}
+// func (user *User) GetMapFormat() map[string]interface{}

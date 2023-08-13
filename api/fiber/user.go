@@ -22,25 +22,26 @@ func NewUserHandler(userService svc.UserService) UserHandler {
 }
 
 // Delete implements UserHandler.
-func (*userhandler) Delete(c *fiber.Ctx) error {
+func (h *userhandler) Delete(c *fiber.Ctx) error {
 	panic("unimplemented")
 }
 
 // Get implements UserHandler.
-func (*userhandler) Get(c *fiber.Ctx) error {
+func (h *userhandler) Get(c *fiber.Ctx) error {
+	return nil
 }
 
 // Post implements UserHandler.
-func (*userhandler) Post(c *fiber.Ctx) error {
+func (h *userhandler) Post(c *fiber.Ctx) error {
 	panic("unimplemented")
 }
 
 // Update implements UserHandler.
-func (*userhandler) Update(c *fiber.Ctx) error {
+func (h *userhandler) Update(c *fiber.Ctx) error {
 	panic("unimplemented")
 }
 
 // UserCtx implements UserHandler.
-func (*userhandler) UserCtx(c *fiber.Ctx) error {
+func (h *userhandler) UserCtx(c *fiber.Ctx) error {
 	panic("unimplemented")
 }
